@@ -1,0 +1,4 @@
+설치한.. 디렉토리? 적어놔야함
+django-bootstrap-v5
+django-debug-toolbar
+django-extensions

@@ -1,0 +1,18 @@
+{% extends "instagram/layout.html" %}
+{% load bootstrap5 %}
+<!doctype html>
+{% block title %}Instagram PostNew{% endblock title %}
+{% block content %}
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <input class="btn btn-info " type="submit" value="저장">
+    </form>
+    <hr/>
+    {% if post %}
+        <a href="{{ form.instance.get_absolute_url }}" class="btn btn-secondary">내용으로</a>
+        <a href="{% url "instagram:post_list" %}" class="btn btn-secondary">목록</a>
+    {% endif %}
+
+
+{% endblock content %}

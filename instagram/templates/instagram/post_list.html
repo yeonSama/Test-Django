@@ -1,0 +1,32 @@
+{% extends "instagram/layout.html" %}
+{% load bootstrap5 %}
+<!DOCTYPE html>
+{% block title %}Instagram PostList{% endblock title %}
+{% block content %}
+    <a class="btn btn-primary btn-block mt-3 mb-3" href="{% url 'instagram:post_new' %}">새 포스팅</a>
+    <table class="table table-hover">
+        <tr>
+
+            <th>id</th>
+            <th>message</th>
+            <th>photo</th>
+        </tr>
+        {% for post in post_list %}
+            <tr>
+                <td>{{ post.id }}</td>
+                <td><a href="{{ post.get_absolute_url }}">{{ post.message }}</a></td>
+                <td>
+                    {% if post.photo %}
+                        <img src="{{ post.photo.url }}" alt="X" width="72px">
+                    {% else %}
+                            NO PHOTO
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+
+    </table>
+
+
+    {% bootstrap_pagination page_obj %}
+{% endblock content %}
